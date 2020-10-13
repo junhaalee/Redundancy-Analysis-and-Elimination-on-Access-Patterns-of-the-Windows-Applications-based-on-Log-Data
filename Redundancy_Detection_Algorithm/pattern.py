@@ -276,14 +276,7 @@ reg_deletek = 'regdeletekey'
 reg_setv = 'regsetvalue'
 reg_deletev = 'regdeletevalue'
 
-
-
-
 pn = list(set(process_name))
-
-
-
-
 
 for i in range(0, len(pn)):
     print(str(pn[i])+' : category 1 count : ' +str(category_count_1(pn[i],reg_open,reg_close)))

@@ -96,12 +96,7 @@ def pattern_detector(data):
 
     return result
 
-
-
-
-
-
-
+#외부 중복 접근 패턴 제거
 def outer_deduplication(data):
     
     process_name = []
@@ -337,8 +332,7 @@ def outer_deduplication(data):
     
     final_data = pd.DataFrame.from_dict({'ProcessName':final_process,'Operation':final_operation,'Path':final_path})
                 
-#    final_data.to_excel('/Users/junha_lee/Documents/Junha/Study/Bigbase/ProjectRegistry/final_revision/pattern_normalization/pattern_result/windows8/outer_deduplication.xlsx',index=False)           
-    final_data.to_csv('/Users/junha_lee/Documents/Junha/Study/Bigbase/ProjectRegistry/final_revision/pattern_normalization/data/windows8/final_deduplication.csv',index=False)           
+    final_data.to_csv('windows8/final_deduplication.csv',index=False)           
 
     return final_data
  
@@ -346,22 +340,16 @@ def outer_deduplication(data):
  
 if __name__ == '__main__':
 
-    o_data = pd.read_csv('/Users/junha_lee/Documents/Junha/Study/Bigbase/ProjectRegistry/final_revision/pattern_normalization/data/windows7/windows7_registry.csv')
-    data = pd.read_csv('/Users/junha_lee/Documents/Junha/Study/Bigbase/ProjectRegistry/final_revision/pattern_normalization/data/windows7/final_deduplication.csv')
-#    data = pd.read_excel('/Users/junha_lee/Documents/Junha/Study/Bigbase/ProjectRegistry/final_revision/pattern_normalization/pattern_result/windows10/internal_deduplication.xlsx')
-#    data = pd.read_excel('/Users/junha_lee/Documents/Junha/Study/Bigbase/ProjectRegistry/final_revision/pattern_normalization/test.xlsx')
-    
+    o_data = pd.read_csv('windows8/windows8_registry.csv')
+    data = pd.read_csv('windows8/final_deduplication.csv')
 
     outer_deduplication(data)
     
-   
     
 process = list(data['ProcessName'])
 
 
 pn = list(set(process))
-
-
 
 
 for i in range(0, len(pn)):

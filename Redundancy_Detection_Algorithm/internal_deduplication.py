@@ -1,7 +1,7 @@
 import pandas as pd 
 
 
-
+#내부 중복 접근 패턴 제거 
 def internal_deduplication(data):
     
     process_name = []
@@ -169,12 +169,10 @@ def internal_deduplication(data):
     
     final_data = pd.DataFrame.from_dict({'ProcessName':final_process,'Operation':final_operation,'Path':final_path})
                   
-    final_data.to_csv('/Users/junha_lee/Documents/Junha/Study/Bigbase/ProjectRegistry/final_revision/pattern_normalization/data//windows8/global_deduplication.csv',index=False)           
-    data = pd.read_csv('/Users/junha_lee/Documents/Junha/Study/Bigbase/ProjectRegistry/final_revision/pattern_normalization/data/windows8/global_deduplication.csv')
+    final_data.to_csv('windows8/global_deduplication.csv',index=False)           
+    data = pd.read_csv('windows8/global_deduplication.csv')
     
-#    final_data.to_excel('/Users/junha_lee/Documents/Junha/Study/Bigbase/ProjectRegistry/final_revision/pattern_normalization/pattern_result/windows10/outer_global_deduplication.xlsx',index=False)           
-#    data = pd.read_excel('/Users/junha_lee/Documents/Junha/Study/Bigbase/ProjectRegistry/final_revision/pattern_normalization/pattern_result/windows10/outer_global_deduplication.xlsx')
-            
+
     sample = {'ProcessName':[],'Operation':[],'Path':[]}
     
     result = pd.DataFrame.from_dict(sample)    
@@ -237,33 +235,15 @@ def internal_deduplication(data):
         deduplication = pd.DataFrame.from_dict(deduplicated_data)
         result = pd.concat([result,deduplication])
     
-    result.to_csv('/Users/junha_lee/Documents/Junha/Study/Bigbase/ProjectRegistry/final_revision/pattern_normalization/data/windows7/internal_deduplication.csv',index=False)           
+    #최종 내부 중복 접근 제거된 데이터 저장
+    result.to_csv('windows8/internal_deduplication.csv',index=False)           
 
     return result
-
-
 
 
     
 if __name__ == '__main__':
     
-    data = pd.read_csv('/Users/junha_lee/Documents/Junha/Study/Bigbase/ProjectRegistry/final_revision/pattern_normalization/data/windows7/windows7_registry.csv')
-
-
+    data = pd.read_csv('windows8/windows8_registry.csv')
     
     internal_deduplication(data)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

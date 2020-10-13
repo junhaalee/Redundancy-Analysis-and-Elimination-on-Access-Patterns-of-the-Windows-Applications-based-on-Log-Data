@@ -68,9 +68,12 @@ def pattern_detector(data):
                            
                             index += 1
                                
-                        pattern.append('regclosekey')        
+                        pattern.append('regclosekey')
+
+                        #regopenkey로 시작해서 regclosekey로 끝나는 패턴들 담기        
                         result.append(pattern)
-                        
+                
+                #regcreatekeyrk 나타났을 경우, 데이터의 마지막까지 해당 경로에 대해 regdeletekey가 존재하면 value = 1
                 elif pn_operation[n] == 'regcreatekey':
                     
                     for i in range(n+1, len(pn_operation)):
@@ -93,7 +96,9 @@ def pattern_detector(data):
                            
                             index += 1
                                
-                        pattern.append('regdeletekey')        
+                        pattern.append('regdeletekey')  
+
+                        #regcreatekey로 시작해서 regdeletekey로 끝나는 패턴들 담기       
                         result.append(pattern)                   
             print str(j)+'/'+ str(len(pn)) + str(n)       
             n += 1
@@ -102,8 +107,6 @@ def pattern_detector(data):
 
 
 
-
-       
 
 
 def pattern_count(result):
