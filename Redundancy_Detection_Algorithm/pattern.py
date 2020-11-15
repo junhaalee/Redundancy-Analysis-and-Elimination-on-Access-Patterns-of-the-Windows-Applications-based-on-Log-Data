@@ -20,10 +20,15 @@ for i in range(0, len(data)):
 
 
 
+#Category 1 : 같은 경로에 대해 Registry API를 수행하는데도 불구하고 불필요하게 Registry Key를 Open하고 Close 할 때.
+#Category 2 : Registry Key 또는 Registry Value의 Data를 변경하는 Registry API가 수행되지 않았는데도 불구하고, 값을 읽어오거나 나열할 때.
+#Category 3 : 동일한 경로에 대해 Registry Key 또는 Registry Value를 생성하고 삭제하는 Registry API가 반복될 때.
+
 
 # op1 - regoperation - op2만 count
 def category_count_1(pn,op1,op2):
     
+    #특정 process에 대해서
     operation1 = []
     path1 = []
     
@@ -37,11 +42,13 @@ def category_count_1(pn,op1,op2):
     
     count_1=0
     
+    #path가 아예 일치하는 경우
     for i in range(1, len(operation1)):
         if operation1[i-1] == op1 and operation1[i] == op2 and path1[i-1]==path1[i]:
             path_set.append(path1[i])
             count_1 += 1
     
+    #하위 path인 경우
     for i in range(1, len(operation1)-1):
         if operation1[i-1] == op1 and operation1[i+1] == op2 and path1[i-1] in path1[i] and path1[i+1]==path1[i-1]:
             path_set.append(path1[i-1])
@@ -79,7 +86,7 @@ def category_pattern_operation_1(pn,op1,op2):
 
 
 
-
+#특정 패턴을 count
 def pattern_count_1(pn,op,op1,op2):
     
 

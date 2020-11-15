@@ -14,5 +14,10 @@
 	- 특허 출원 자료
 
 - [Redundancy Detection Algorithm : 중복 접근 패턴 탐지 및 제거 알고리즘](https://github.com/junhaalee/registry_redundancy_analysis/tree/master/Redundancy_Detection_Algorithm) 
+	- detection : Outer Deduplication Pattern 탐지 및 Count
+	- filtering : Process Monitor를 수집한 다양한 종류의 데이터(Registry/Network/Process/File System) 중에서 Registry와 관련된 데이터 Filtering
+	- internal_deduplication : Internal Deduplication Pattern 탐지 및 제거
+	- outer_deduplication : Outer Deduplication Pattern 탐지 및 제거
+	- pattern : Category 1,2,3에 대한 패턴 탐지 및 Count(이전 버전)
 - [Redundancy Elimination Program : 중복 접근 패턴 제거 알고리즘이 적용된 가상의 프로그램](https://github.com/junhaalee/registry_redundancy_analysis/tree/master/Redundancy_Elimination_Program)
 
